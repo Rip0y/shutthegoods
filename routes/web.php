@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\ProductController; // 1. TAMBAHKAN INI
-use App\Models\Product; 
+use App\Models\Product;
 
 Route::get('/', function () {
     $products = Product::latest()->get(); // Mengambil semua produk, diurutkan dari yang terbaru
@@ -18,6 +18,21 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
+    Route::get('/tentang-kami', function () {
+    return view('tentang-kami');
+});
+
+Route::get('/syarat-ketentuan', function () {
+    return view('syarat-ketentuan');
+});
+
+Route::get('/karir', function () {
+    return view('karir');
+});
+
+Route::get('/blog', function () {
+    return view('blog');
+});
 // ===================================
 // GRUP RUTE ADMIN
 // ===================================
